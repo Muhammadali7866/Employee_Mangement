@@ -1,0 +1,17 @@
+{% extends 'main/index.html' %}
+{% block body %}
+<div class="card bg-light ml-5 m-5 col-sm-8" >
+    <div class="card-header">EMployee Info</div>
+    <div class="card-body">
+        <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" class="btn btn-primary" value="submit">
+            {% comment %} <a href="{% url 'view-e' %}"><li class="btn btn-secondary">Back</li></a> {% endcomment %}
+
+            
+        </form>
+
+        {% endblock %}  
+    </div>
+  </div>

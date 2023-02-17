@@ -1,0 +1,17 @@
+{% extends "main/index.html" %}
+{% block body %}
+<div class="row ml-lg-5">
+<div class="col-sm-8  ">
+<div class="card bg-light m-3">
+    <div class="card-header">Add Employee Information</div>
+    <div class="card-body">
+        <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="Submit" value="ADD" class="btn btn-primary">
+        </form>
+    </div>
+  </div>
+</div> 
+</div>
+{% endblock %}

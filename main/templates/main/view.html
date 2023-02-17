@@ -1,0 +1,52 @@
+{% extends 'main/index.html' %}
+{% block body %}
+<div class=" m-5">
+    <div class="card bg-light m-3 ml-5 ">
+        <div class="card-header"><a href="{% url 'add-e' %}"><button class="btn btn-primary">Create</button></a></div>
+        <div class="card-body">
+            <table class="table">
+                <tr style="border:1px solid">
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>City</th>
+                    <th>Country</th>
+                    <th>Department</th>
+                    <th>Address</th>
+                    <th>Zipcode</th>
+                    <th>State</th>
+                    <th>On Leave</th>
+                    <th>Date Of Birth</th>
+                    <th>Action</th>
+                </tr>
+
+                {% for fm in form %}
+                <tr style="border:1px solid">
+                    <td>{{fm.name}}</td>
+                    <td>{{fm.email}}</td>
+                    <td>{{fm.city}}</td>
+                    <td>{{fm.country}}</td>
+                    <td>{{fm.departement}}</td>
+                    <td>{{fm.address}}</td>
+                    <td>{{fm.zipcode}}</td>
+                    <td>{{fm.state}}</td>
+                    <td>{% if fm.on_leave %}
+                          <a href="{% url 'leave-e' fm.id %}" onclick="Are you sure you want to working "><button class="btn btn-danger">Leave</button></a>
+                        {% else %}
+                          <a href="{% url 'leave-e' fm.id %}" onclick="Are you sure you want to leave"><button class="btn btn-primary">Working</button></a>
+                        {% endif %}
+                    </td>
+                    <td>{{fm.dob}}</td>
+                    <td><a href="{% url 'edit' fm.id %}"><button class="btn btn-primary">Edit</button></a></td>
+                    <td><a href="{% url 'delete' fm.id %}"><button class="btn btn-danger">Delete</button></a></td>
+                </tr>
+
+            
+                {% endfor %}
+            
+            </table>
+          
+        </div>
+      </div>
+
+</div>
+{% endblock %}
